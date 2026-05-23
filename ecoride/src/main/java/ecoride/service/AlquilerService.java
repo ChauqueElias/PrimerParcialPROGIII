@@ -10,6 +10,8 @@ public class AlquilerService {
     private List<Vehiculo> vehiculos = new ArrayList<>();
     private List<Usuario> usuarios = new ArrayList<>();
 
+    private PagoService pagoService = new PagoService();
+
     public AlquilerService() {
 
         vehiculos.add(new Monopatin("ABC123", 80, 1000, true));
@@ -59,6 +61,8 @@ public class AlquilerService {
 
         double total = usuario.aplicarDescuento(tarifa);
 
-        return "Vehículo desbloqueado. Total a pagar: $" + total;
+    String pago = pagoService.procesarPago("TARJETA", total);
+
+        return "Vehículo desbloqueado. " + pago;
     }
 }
