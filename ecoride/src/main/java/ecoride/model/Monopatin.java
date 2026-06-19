@@ -9,12 +9,15 @@ public class Monopatin extends Vehiculo {
         this.amortiguacion = amortiguacion;
     }
 
-    public boolean isAmortiguacion() {
-        return amortiguacion;
-    }
+    public boolean isAmortiguacion() { return amortiguacion; }
 
     @Override
     public double calcularTarifa() {
         return tarifaBase + 500;
+    }
+
+    @Override
+    public String getTipo() {
+        return "Monopatin";
     }
 }

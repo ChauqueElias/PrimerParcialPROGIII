@@ -9,12 +9,15 @@ public class BicicletaElectrica extends Vehiculo {
         this.capacidadCanasto = capacidadCanasto;
     }
 
-    public int getCapacidadCanasto() {
-        return capacidadCanasto;
-    }
+    public int getCapacidadCanasto() { return capacidadCanasto; }
 
     @Override
     public double calcularTarifa() {
         return tarifaBase + 300;
+    }
+
+    @Override
+    public String getTipo() {
+        return "BicicletaElectrica";
     }
 }

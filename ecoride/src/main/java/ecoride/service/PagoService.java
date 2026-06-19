@@ -1,9 +1,23 @@
 package ecoride.service;
 
+import ecoride.strategy.Medio;
+import ecoride.strategy.TarjetaCredito;
+import org.springframework.stereotype.Service;
+
+@Service
 public class PagoService {
 
-    public String procesarPago(String metodoPago, double monto) {
+    private Medio medio;
 
-        return "Pago realizado con " + metodoPago + " por $" + monto;
+    public PagoService() {
+        this.medio = new TarjetaCredito();
+    }
+
+    public void setMedio(Medio medio) {
+        this.medio = medio;
+    }
+
+    public String procesarPago(double monto) {
+        return medio.cobrar(monto);
     }
 }
